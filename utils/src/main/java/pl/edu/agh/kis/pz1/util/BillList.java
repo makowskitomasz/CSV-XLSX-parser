@@ -1,27 +1,39 @@
 package pl.edu.agh.kis.pz1.util;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Class that defines the list of all bills
+ * @author tomaszmakowski
+ */
 @XmlRootElement(name="Faktury")
 public class BillList {
-    private List<Bill> listBill = new ArrayList<Bill>();
+    private List<Bill> listBill = new ArrayList<>();
 
-    private BillList(){
+    public BillList(){
         super();
     }
+
+    /**
+     * Constructor of BillList Class
+     * @param i the number of the file type
+     *         0 - XLSX
+     *          1 - CSV
+     */
     public BillList(int i) {
         if(i == 0){
             ReaderXLSX readerXLSX = new ReaderXLSX();
             readerXLSX.parserOfXLSX();
-            listBill.addAll(readerXLSX.bills);
+            listBill.addAll(readerXLSX.getBills());
         }
         else if(i == 1){
             ReaderCSV readerCSV = new ReaderCSV();
             readerCSV.parserOfCSV();
-            listBill.addAll(readerCSV.bills);
+            listBill.addAll(readerCSV.getBills());
         }
 
     }

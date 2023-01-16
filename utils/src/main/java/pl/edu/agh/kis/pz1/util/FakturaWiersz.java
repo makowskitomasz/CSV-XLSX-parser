@@ -1,60 +1,80 @@
 package pl.edu.agh.kis.pz1.util;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
-@XmlType(propOrder = {"p_2B", "p_7", "p_8A", "p_8B", "p_9A", "p_9B", "p_11", "p_12"})
+
+/**
+ * Class defines FakturaWiersz
+ * @author tomaszmakowski
+ */
+@XmlType(propOrder = {"p2B", "p7", "p8A", "p8B", "p9A", "p9B", "p11", "p12"})
 @XmlRootElement(name="FakturaWiersz")
 public class FakturaWiersz {
 
-    private String P_2B, P_12, P_9B;
-    private final String P_7 = "Sprzedaż usług krajowych", P_8A = "szt";
-    private BigDecimal P_8B, P_9A, P_11;
+    private String p2B;
+    private String p12;
+    private String p9B;
+    private static final String P7 = "Sprzedaż usług krajowych";
+    private static final String P8A = "szt";
+    private BigDecimal p8B;
+    private BigDecimal p9A;
+    private BigDecimal p11;
 
     public FakturaWiersz(){
         super();
     }
 
-    FakturaWiersz(String P_2B, String P_12, BigDecimal P_8B, BigDecimal P_9A, String P_9B, BigDecimal P_11){
-        this.P_2B = P_2B;
-        this.P_12 = P_12;
-        this.P_8B = P_8B;
-        this.P_9A = P_9A;
-        this.P_9B = P_9B;
-        this.P_11 = P_11;
+
+    /**
+     * Constructor of FakturaWiersz Class
+     * @param p2B - name of the product
+     * @param p12 - tax rate
+     * @param p8B - quantity of the product
+     * @param p9A - price of the product
+     * @param p9B - unit of the product
+     * @param p11 - tax amount
+     */
+    FakturaWiersz(String p2B, String p12, BigDecimal p8B, BigDecimal p9A, String p9B, BigDecimal p11){
+        this.p2B = p2B;
+        this.p12 = p12;
+        this.p8B = p8B;
+        this.p9A = p9A;
+        this.p9B = p9B;
+        this.p11 = p11;
     }
-    @XmlElement
-    public String getP_2B() {
-        return P_2B;
+    @XmlElement(name = "P_2B")
+    public String getP2B() {
+        return p2B;
     }
-    @XmlElement
-    public String getP_12() {
-        return P_12;
+    @XmlElement(name = "P_12")
+    public String getP12() {
+        return p12;
     }
-    @XmlElement
-    public String getP_7() {
-        return P_7;
+    @XmlElement(name = "P_7")
+    public String getP7() {
+        return P7;
     }
-    @XmlElement
-    public String getP_8A() {
-        return P_8A;
+    @XmlElement(name = "P_8A")
+    public String getP8A() {
+        return P8A;
     }
-    @XmlElement
-    public BigDecimal getP_8B() {
-        return P_8B;
+    @XmlElement(name = "P_8B")
+    public BigDecimal getP8B() {
+        return p8B;
     }
-    @XmlElement
-    public BigDecimal getP_9A() {
-        return P_9A;
+    @XmlElement(name = "P_9A")
+    public BigDecimal getP9A() {
+        return p9A;
     }
-    @XmlElement
-    public String getP_9B() {
-        return P_9B;
+    @XmlElement(name = "P_9B")
+    public String getP9B() {
+        return p9B;
     }
-    @XmlElement
-    public BigDecimal getP_11() {
-        return P_11;
+    @XmlElement(name = "P_11")
+    public BigDecimal getP11() {
+        return p11;
     }
 }

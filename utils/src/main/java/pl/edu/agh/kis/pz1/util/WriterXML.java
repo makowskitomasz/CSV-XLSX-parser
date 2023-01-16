@@ -1,11 +1,24 @@
 package pl.edu.agh.kis.pz1.util;
 
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Marshaller;
+
 import java.io.File;
 
+/**
+ * @author tomaszmakowski
+ * Class defines WriterXML
+ * It is responsible for writing XML file
+ */
 public class WriterXML {
+
+    /**
+     * Method writes XML file
+     * @param i - type of the file
+     * @param fileName name of the file
+     * Using JAXBContext and Marshaller
+     */
     public void writeXML(int i, String fileName){
         try{
             File myFile = new File(fileName);

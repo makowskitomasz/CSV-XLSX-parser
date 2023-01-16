@@ -9,16 +9,44 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A parser of XLSX files
+ * @author tomaszmakowski
+ */
 public class ReaderXLSX {
 
-    public List<Bill> bills = new ArrayList<>();
-    public List<FakturaWiersz> fakturaWierszList = new ArrayList<>();
+    private List<Bill> bills = new ArrayList<>();
+    private List<FakturaWiersz> fakturaWierszList = new ArrayList<>();
+
+    public List<Bill> getBills() {
+        return bills;
+    }
+
+    public List<FakturaWiersz> getFakturaWierszList() {
+        return fakturaWierszList;
+    }
+
+    /**
+     * A method which reads xlsx file and creates list of bills and list of fakturaWiersz
+     */
     public void parserOfXLSX(){
-        try{
-            String P_3A, P_3B, P_5B, P_1, P_6,P_2A, P_2B, P_12, P_9B;
-            BigDecimal P_13_1, P_14_1, P_15, P_8B, P_9A, P_11;
-            int counter = 0;
-            FileInputStream file = new FileInputStream("/home/tomaszmakowski/ProgramowanieZaawansowane/Projekt3/faktury-sprzedazowe-test-2023.xlsx");
+        String p3A;
+        String p3B;
+        String p5B;
+        String p1;
+        String p6;
+        String p2A;
+        BigDecimal p131;
+        BigDecimal p141;
+        BigDecimal p15;
+        String p2B;
+        String p12;
+        BigDecimal p8B;
+        BigDecimal p9A;
+        BigDecimal p11;
+        String p9B;
+        int counter = 0;
+        try (FileInputStream file = new FileInputStream("/home/tomaszmakowski/ProgramowanieZaawansowane/Projekt3/faktury-sprzedazowe-test-2023.xlsx")) {
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             XSSFSheet sheet = workbook.getSheetAt(0);
             for (Row row : sheet) {
@@ -26,27 +54,25 @@ public class ReaderXLSX {
                     counter += 1;
                     continue;
                 }
-                P_3A = String.valueOf(row.getCell(0));
-                P_3B = String.valueOf(row.getCell(1));
-                P_5B = String.valueOf(row.getCell(2));
-                P_1 = String.valueOf(row.getCell(3));
-                P_6 = String.valueOf(row.getCell(4));
-                P_2A = String.valueOf(row.getCell(5));
-                P_13_1 = BigDecimal.valueOf(row.getCell(8).getNumericCellValue());
-                P_14_1 = BigDecimal.valueOf(row.getCell(9).getNumericCellValue());
-                P_15 = BigDecimal.valueOf(row.getCell(10).getNumericCellValue());
-                P_2B = String.valueOf(row.getCell(5));
-                P_12 = String.valueOf(row.getCell(9));
-                P_8B = BigDecimal.valueOf(row.getCell(7).getNumericCellValue());
-                P_9A = BigDecimal.valueOf(row.getCell(8).getNumericCellValue());
-                P_11 = BigDecimal.valueOf(row.getCell(13).getNumericCellValue());
-                P_9B = String.valueOf(row.getCell(12));
-                bills.add(new Bill(P_3A, P_3B, P_5B, P_1, P_6, P_2A, P_13_1, P_14_1, P_15));
-                fakturaWierszList.add(new FakturaWiersz(P_2B, P_12, P_8B, P_9A, P_9B, P_11));
+                p3A = String.valueOf(row.getCell(0));
+                p3B = String.valueOf(row.getCell(1));
+                p5B = String.valueOf(row.getCell(2));
+                p1 = String.valueOf(row.getCell(3));
+                p6 = String.valueOf(row.getCell(4));
+                p2A = String.valueOf(row.getCell(5));
+                p131 = BigDecimal.valueOf(row.getCell(8).getNumericCellValue());
+                p141 = BigDecimal.valueOf(row.getCell(9).getNumericCellValue());
+                p15 = BigDecimal.valueOf(row.getCell(10).getNumericCellValue());
+                p2B = String.valueOf(row.getCell(5));
+                p12 = String.valueOf(row.getCell(9));
+                p8B = BigDecimal.valueOf(row.getCell(7).getNumericCellValue());
+                p9A = BigDecimal.valueOf(row.getCell(8).getNumericCellValue());
+                p11 = BigDecimal.valueOf(row.getCell(13).getNumericCellValue());
+                p9B = String.valueOf(row.getCell(12));
+                bills.add(new Bill(p3A, p3B, p5B, p1, p6, p2A, p131, p141, p15));
+                fakturaWierszList.add(new FakturaWiersz(p2B, p12, p8B, p9A, p9B, p11));
             }
-            file.close();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

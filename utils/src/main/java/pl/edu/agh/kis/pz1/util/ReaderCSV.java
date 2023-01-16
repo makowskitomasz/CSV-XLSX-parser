@@ -10,47 +10,80 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * A parser of CSV files
+ * @author tomaszmakowski
+ */
 public class ReaderCSV {
 
-    public List<Bill> bills = new ArrayList<>();
-    public List<FakturaWiersz> fakturaWierszList = new ArrayList<>();
+    private final List<Bill> bills = new ArrayList<>();
+    private final List<FakturaWiersz> fakturaWierszList = new ArrayList<>();
 
+    /**
+     * A method which changes string in csv file to BigDecimal
+     * @param value - string to be changed
+     * @return BigDecimal
+     */
     public BigDecimal stringToDecimal(String value){
         value = value.replace(",", ".");
         value = value.replace("zł", "");
-        value = value.replaceAll("\u00A0", "");
+        value = value.replace("\u00A0", "");
         value = value.trim();
         return new BigDecimal(value);
     }
+
+    public List<Bill> getBills() {
+        return bills;
+    }
+
+    public List<FakturaWiersz> getFakturaWierszList() {
+        return fakturaWierszList;
+    }
+
+    /**
+     * A method which reads csv file and creates list of bills and list of fakturaWiersz
+     */
     public void parserOfCSV(){
-        try{
-            String P_3A, P_3B, P_5B, P_1, P_6,P_2A, P_2B, P_12, tmp, P_9B;
-            BigDecimal P_13_1, P_14_1, P_15, P_8B, P_9A, P_11;
-            Reader in = new FileReader("/home/tomaszmakowski/ProgramowanieZaawansowane/Projekt3/faktury-sprzedazowe-test-2023.csv");
-            Iterable<CSVRecord> records = CSVFormat.EXCEL.withDelimiter('\t').parse(in);
+        String p3A;
+        BigDecimal p131;
+        BigDecimal p141;
+        BigDecimal p15;
+        BigDecimal p8B;
+        BigDecimal p9A;
+        BigDecimal p11;
+        String p3B;
+        String p5B;
+        String p1;
+        String p6;
+        String p2A;
+        String p2B;
+        String p12;
+        String p9B;
+        try (Reader in = new FileReader("/home/tomaszmakowski/ProgramowanieZaawansowane/Projekt3/faktury-sprzedazowe-test-2023.csv")) {
+            Iterable<CSVRecord> records = CSVFormat.TDF.parse(in);
             int counter = 0;
-            for (CSVRecord record : records) {
+            for (CSVRecord csvRecord : records) {
                 if(counter == 0){
                     counter += 1;
                     continue;
                 }
-                P_3A = record.get(0);
-                P_3B = record.get(1);
-                P_5B = record.get(2);
-                P_1 = record.get(3);
-                P_6 = record.get(3);
-                P_2A = record.get(5);
-                P_13_1 = stringToDecimal(record.get(8));
-                P_14_1 = stringToDecimal(record.get(9));
-                P_15 = stringToDecimal(record.get(10));
-                P_2B = record.get(5);
-                P_12 = record.get(9);
-                P_8B = stringToDecimal(record.get(7));
-                P_9A = stringToDecimal(record.get(8));
-                P_11 = stringToDecimal(record.get(13));
-                P_9B = record.get(2);
-                bills.add(new Bill(P_3A, P_3B, P_5B, P_1, P_6, P_2A, P_13_1, P_14_1, P_15));
-                fakturaWierszList.add(new FakturaWiersz(P_2B, P_12, P_8B, P_9A, P_9B, P_11));
+                p3A = csvRecord.get(0);
+                p3B = csvRecord.get(1);
+                p5B = csvRecord.get(2);
+                p1 = csvRecord.get(3);
+                p6 = csvRecord.get(3);
+                p2A = csvRecord.get(5);
+                p131 = stringToDecimal(csvRecord.get(8));
+                p141 = stringToDecimal(csvRecord.get(9));
+                p15 = stringToDecimal(csvRecord.get(10));
+                p2B = csvRecord.get(5);
+                p12 = csvRecord.get(9);
+                p8B = stringToDecimal(csvRecord.get(7));
+                p9A = stringToDecimal(csvRecord.get(8));
+                p11 = stringToDecimal(csvRecord.get(13));
+                p9B = csvRecord.get(2);
+                bills.add(new Bill(p3A, p3B, p5B, p1, p6, p2A, p131, p141, p15));
+                fakturaWierszList.add(new FakturaWiersz(p2B, p12, p8B, p9A, p9B, p11));
             }
         } catch (Exception e) {
             e.printStackTrace();

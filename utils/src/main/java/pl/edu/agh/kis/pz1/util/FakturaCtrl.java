@@ -1,32 +1,45 @@
 package pl.edu.agh.kis.pz1.util;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
+
+/**
+ * @author tomaszmakowski
+ * Class defines FakturaCtrl rows
+ */
 @XmlRootElement(name="FakturaCtrl")
 public class FakturaCtrl {
     private int liczbaFaktur;
     private BigDecimal wartoscFaktur = new BigDecimal(0);
 
-    private FakturaCtrl(){
+    public FakturaCtrl(){
         super();
     }
+
+    /**
+     * Constructor of FakturaCtrl Class
+     * @param i that defines type of file
+     *          0 - XLSX
+     *          1 - CSV
+     * counts number of bills and their value
+     */
     public FakturaCtrl(int i) {
         if(i == 0){
             ReaderXLSX readerXLSX = new ReaderXLSX();
             readerXLSX.parserOfXLSX();
-            for(Bill bill : readerXLSX.bills){
+            for(Bill bill : readerXLSX.getBills()){
                 liczbaFaktur += 1;
-                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP_14_1())));
+                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));
             }
         }
         else if(i == 1){
             ReaderCSV readerCSV = new ReaderCSV();
             readerCSV.parserOfCSV();
-            for(Bill bill : readerCSV.bills){
+            for(Bill bill : readerCSV.getBills()){
                 liczbaFaktur += 1;
-                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP_14_1())));
+                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));
             }
         }
     }

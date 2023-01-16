@@ -1,0 +1,12 @@
+pl/edu/agh/kis/pz1/util/ReaderCSV.class
+pl/edu/agh/kis/pz1/util/Podmiot1.class
+pl/edu/agh/kis/pz1/util/FakturaWiersz.class
+pl/edu/agh/kis/pz1/util/FakturaWierszCtrl.class
+pl/edu/agh/kis/pz1/util/Bill.class
+pl/edu/agh/kis/pz1/util/BillList.class
+pl/edu/agh/kis/pz1/util/Naglowek.class
+pl/edu/agh/kis/pz1/util/WriterXML.class
+pl/edu/agh/kis/pz1/util/FakturaCtrl.class
+pl/edu/agh/kis/pz1/util/ListFakturaWiersz.class
+pl/edu/agh/kis/pz1/util/JPK.class
+pl/edu/agh/kis/pz1/util/ReaderXLSX.class

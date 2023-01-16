@@ -1,142 +1,180 @@
 package pl.edu.agh.kis.pz1.util;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
-@XmlType(propOrder = {"kodWaluty", "p_1", "p_2A", "p_3A", "p_3B", "p_3C", "p_3D", "p_4A", "p_4B", "p_5B", "p_6", "p_13_1", "p_14_1",
-"p_15", "p_16", "p_17", "p_18", "p_18A", "p_19", "p_20", "p_21", "p_22", "p_23", "p_106E_2", "p_106E_3", "rodzajFaktury"})
+/**
+ * @author tomaszmakowski
+ * class that defines the bill
+ */
+
+@XmlType(propOrder = {"kodWaluty", "p1", "p2A", "p3A", "p3B", "p3C", "p3D", "p4A", "p4B", "p5B", "p6", "p131", "p141",
+"p15", "p16", "p17", "p18", "p18A", "p19", "p20", "p21", "p22", "p23", "p106E2", "p106E3", "rodzajFaktury"})
 @XmlRootElement(name="Faktury")
 public class Bill {
-    String KodWaluty = "PLN";
-    String P_1, P_2A, P_3A, P_3B, P_5B, P_6;
-    BigDecimal P_13_1, P_14_1, P_15;
-    Boolean P_16 = false, P_17 = false, P_18 = false, P_18A = false, P_19 = false, P_20 = false, P_21 = false, P_22 = false, P_23 = false, P_106E_2 = false, P_106E_3 = false;
+    String kodWaluty = "PLN";
+    String p1;
+    String p2A;
+    String p3A;
+    String p3B;
+    String p5B;
+    String p6;
+    BigDecimal p131;
+    BigDecimal p141;
+    BigDecimal p15;
+    Boolean p16 = false;
+    Boolean p17 = false;
+    Boolean p18 = false;
+    Boolean p18A = false;
+    Boolean p19 = false;
+    Boolean p20 = false;
+    Boolean p21 = false;
+    Boolean p22 = false;
+    Boolean p23 = false;
+    Boolean p106E2 = false;
+    Boolean p106E3 = false;
 
-    String P_3C = "\"CORE LOGIC\" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ";
-    String P_3D = "ul. Feliksa Radwańskiego 15/1, 30-065 Kraków";
-    String P_4A = "PL";
-    String P_4B = "6762484560";
-    String RodzajFaktury = "VAT";
+    String p3C = "\"CORE LOGIC\" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ";
+    String p3D = "ul. Feliksa Radwańskiego 15/1, 30-065 Kraków";
+    String p4A = "PL";
+    String p4B = "6762484560";
+    String rodzajFaktury = "VAT";
 
-    Bill(){
+    public Bill(){
         super();
     }
 
-    Bill(String P_3A, String P_3B, String P_5B, String P_1, String P_6, String P_2A, BigDecimal P_13_1, BigDecimal P_14_1, BigDecimal P_15){
-        this.P_1 = P_1;
-        this.P_3A = P_3A;
-        this.P_2A = P_2A;
-        this.P_3B = P_3B;
-        this.P_5B = P_5B;
-        this.P_6 = P_6;
-        this.P_13_1 = P_13_1;
-        this.P_14_1 = P_14_1;
-        this.P_15 = P_15;
+    /**
+     * Constructor that uses the data from the CSV file
+     * @param p3A - name of the company
+     * @param p3B - address of the company
+     * @param p5B - NIP of the company
+     * @param p1  - number of the bill
+     * @param p6 - date of the bill
+     * @param p2A - date of the bill
+     * @param p131 - netto value of the bill
+     * @param p141 - brutto value of the bill
+     * @param p15 - VAT value of the bill
+     */
+
+    Bill(String p3A, String p3B, String p5B, String p1, String p6, String p2A, BigDecimal p131, BigDecimal p141, BigDecimal p15){
+        this.p1 = p1;
+        this.p3A = p3A;
+        this.p2A = p2A;
+        this.p3B = p3B;
+        this.p5B = p5B;
+        this.p6 = p6;
+        this.p131 = p131;
+        this.p141 = p141;
+        this.p15 = p15;
     }
-    @XmlElement
+
+    @XmlElement(name="KodWaluty")
     public String getKodWaluty() {
-        return KodWaluty;
+        return kodWaluty;
     }
-    @XmlElement
-    public String getP_1() {
-        return P_1;
+
+    @XmlElement(name="P_1")
+    public String getP1() {
+        return p1;
     }
-    @XmlElement
-    public String getP_2A() {
-        return P_2A;
+
+    @XmlElement(name="P_2A")
+    public String getP2A() {
+        return p2A;
     }
-    @XmlElement
-    public String getP_3A() {
-        return P_3A;
+    @XmlElement(name="P_3A")
+    public String getP3A() {
+        return p3A;
     }
-    @XmlElement
-    public String getP_3B() {
-        return P_3B;
+    @XmlElement(name="P_3B")
+    public String getP3B() {
+        return p3B;
     }
-    @XmlElement
-    public String getP_5B() {
-        return P_5B;
+    @XmlElement (name="P_5B")
+    public String getP5B() {
+        return p5B;
     }
-    @XmlElement
-    public String getP_6() {
-        return P_6;
+    @XmlElement(name="P_6")
+    public String getP6() {
+        return p6;
     }
-    @XmlElement
-    public BigDecimal getP_13_1() {
-        return P_13_1;
+    @XmlElement(name="P_13_1")
+    public BigDecimal getP131() {
+        return p131;
     }
-    @XmlElement
-    public BigDecimal getP_14_1() {
-        return P_14_1;
+    @XmlElement(name="P_14_1")
+    public BigDecimal getP141() {
+        return p141;
     }
-    @XmlElement
-    public BigDecimal getP_15() {
-        return P_15;
+    @XmlElement(name="P_15")
+    public BigDecimal getP15() {
+        return p15;
     }
-    @XmlElement
-    public Boolean getP_16() {
-        return P_16;
+    @XmlElement(name="P_16")
+    public Boolean getP16() {
+        return p16;
     }
-    @XmlElement
-    public Boolean getP_17() {
-        return P_17;
+    @XmlElement(name="P_17")
+    public Boolean getP17() {
+        return p17;
     }
-    @XmlElement
-    public Boolean getP_18() {
-        return P_18;
+    @XmlElement(name="P_18")
+    public Boolean getP18() {
+        return p18;
     }
-    @XmlElement
-    public Boolean getP_18A() {
-        return P_18A;
+    @XmlElement(name="P_18A")
+    public Boolean getP18A() {
+        return p18A;
     }
-    @XmlElement
-    public Boolean getP_19() {
-        return P_19;
+    @XmlElement(name="P_19")
+    public Boolean getP19() {
+        return p19;
     }
-    @XmlElement
-    public Boolean getP_20() {
-        return P_20;
+    @XmlElement(name="P_20")
+    public Boolean getP20() {
+        return p20;
     }
-    @XmlElement
-    public Boolean getP_21() {
-        return P_21;
+    @XmlElement(name="P_21")
+    public Boolean getP21() {
+        return p21;
     }
-    @XmlElement
-    public Boolean getP_22() {
-        return P_22;
+    @XmlElement(name="P_22")
+    public Boolean getP22() {
+        return p22;
     }
-    @XmlElement
-    public Boolean getP_23() {
-        return P_23;
+    @XmlElement(name="P_23")
+    public Boolean getP23() {
+        return p23;
     }
-    @XmlElement
-    public Boolean getP_106E_2() {
-        return P_106E_2;
+    @XmlElement(name="P_106E_2")
+    public Boolean getP106E2() {
+        return p106E2;
     }
-    @XmlElement
-    public Boolean getP_106E_3() {
-        return P_106E_3;
+    @XmlElement(name="P_106E_3")
+    public Boolean getP106E3() {
+        return p106E3;
     }
-    @XmlElement
-    public String getP_3C() {
-        return P_3C;
+    @XmlElement(name="P_3C")
+    public String getP3C() {
+        return p3C;
     }
-    @XmlElement
-    public String getP_3D() {
-        return P_3D;
+    @XmlElement(name="P_3D")
+    public String getP3D() {
+        return p3D;
     }
-    @XmlElement
-    public String getP_4A() {
-        return P_4A;
+    @XmlElement(name="P_4A")
+    public String getP4A() {
+        return p4A;
     }
-    @XmlElement
-    public String getP_4B() {
-        return P_4B;
+    @XmlElement(name="P_4B")
+    public String getP4B() {
+        return p4B;
     }
-    @XmlElement
+    @XmlElement(name="RodzajFaktury")
     public String getRodzajFaktury() {
-        return RodzajFaktury;
+        return rodzajFaktury;
     }
 }

@@ -1,8 +1,14 @@
 package pl.edu.agh.kis.pz1.util;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
+
+/**
+ * @author tomaszmakowski
+ * Class defines JPK
+ * The head class which calls other constructors
+ */
 
 @XmlType(propOrder = {"naglowek", "podmiot1", "billList", "fakturaCtrl", "listFakturaWiersz", "fakturaWierszCtrl"})
 @XmlRootElement(name = "JPK")
@@ -18,6 +24,14 @@ public class JPK {
     public JPK(){
         super();
     }
+
+    /**
+     * Constructor of JPK Class
+     * @param i defines filetype
+     *          0 - XLSX
+     *          1 - CSV
+     * Calls the constructors of other classes: Naglowek, Podmiot1, BillList, FakturaCtrl, ListFakturaWiersz, FakturaWierszCtrl
+     */
     public JPK(int i) {
             super();
             podmiot1 = new Podmiot1();

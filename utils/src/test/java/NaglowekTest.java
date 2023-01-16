@@ -4,13 +4,24 @@ import pl.edu.agh.kis.pz1.util.Naglowek;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * A class that tests the Naglowek class
+ */
 public class NaglowekTest {
+
+    /**
+     * Test for the construction of Naglowek
+     */
     @Test
     public void naglowekTestCalled(){
         Naglowek naglowek = new Naglowek();
         assertNotNull(naglowek);
     }
 
+
+    /**
+     * Test for getters of Naglowek class
+     */
     @Test
     public void rightGetters(){
         Naglowek naglowek = new Naglowek();

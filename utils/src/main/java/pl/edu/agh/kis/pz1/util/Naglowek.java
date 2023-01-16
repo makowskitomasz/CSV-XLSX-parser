@@ -1,8 +1,13 @@
 package pl.edu.agh.kis.pz1.util;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+
+/**
+ * Class that represents the information about the JPK_file
+ * @author tomaszmakowski
+ */
 @XmlRootElement(name="Naglowek")
 public class Naglowek {
 

@@ -9,48 +9,63 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * Test for the class Bill
+ */
 public class BillTest {
     ReaderCSV readerCSV = new ReaderCSV();
     private List<Bill> listBill = new ArrayList<Bill>();
 
 
+    /**
+     * Test for the construction of Bill and the
+     * bill object being called
+     */
     @Test
     public void shouldCreateBillObject(){
-        ReaderCSV readerCSV = new ReaderCSV();
-        assertNotNull("Bill object called.", readerCSV);
+        Bill bill = new Bill();
+        assertNotNull("Bill object called.", bill);
     }
 
+    /**
+     * Test for the getter methods in the Bill class
+     */
     @Test
     public void rightGetters(){
         readerCSV.parserOfCSV();
-        listBill.addAll(readerCSV.bills);
+        listBill.addAll(readerCSV.getBills());
         assertEquals("PLN", listBill.get(0).getKodWaluty());
-        assertEquals("2020-10-09",listBill.get(0).getP_1());
-        assertEquals("3-09/10/2020",listBill.get(0).getP_2A());
-        assertEquals("Firma5 SP. Z O.O.",listBill.get(0).getP_3A());
-        assertEquals("UL. FELIKSA RADWAŃSKIEGO 15/1, 30-065 KRAKÓW",listBill.get(0).getP_3B());
-        assertEquals("UL. FELIKSA RADWAŃSKIEGO 15/1, 30-065 KRAKÓW",listBill.get(0).getP_3B());
-        assertEquals("634-27-26-447",listBill.get(0).getP_5B());
-        assertEquals("2020-10-09",listBill.get(0).getP_6());
-        assertEquals("3000.00", String.valueOf(listBill.get(0).getP_13_1()));
-        assertEquals(new BigDecimal(23) ,listBill.get(0).getP_14_1());
-        assertEquals("690.00",String.valueOf(listBill.get(0).getP_15()));
-        assertEquals(false ,listBill.get(0).getP_16());
-        assertEquals(false,listBill.get(0).getP_17());
-        assertEquals(false,listBill.get(0).getP_18());
-        assertEquals(false,listBill.get(0).getP_18A());
-        assertEquals(false,listBill.get(0).getP_19());
-        assertEquals(false,listBill.get(0).getP_20());
-        assertEquals(false,listBill.get(0).getP_21());
-        assertEquals(false, listBill.get(0).getP_22());
-        assertEquals(false,listBill.get(0).getP_23());
-        assertEquals(false,listBill.get(0).getP_106E_2());
-        assertEquals(false,listBill.get(0).getP_106E_3());
-        assertEquals("\"CORE LOGIC\" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",listBill.get(0).getP_3C());
-        assertEquals("ul. Feliksa Radwańskiego 15/1, 30-065 Kraków",listBill.get(0).getP_3D());
-        assertEquals("PL",listBill.get(0).getP_4A());
-        assertEquals("6762484560",listBill.get(0).getP_4B());
-        assertEquals("VAT",listBill.get(0).getRodzajFaktury());
+        assertEquals("2020-10-09",listBill.get(0).getP1());
+        assertEquals("3-09/10/2020",listBill.get(0).getP2A());
+        assertEquals("Firma5 SP. Z O.O.",listBill.get(0).getP3A());
+        assertEquals("UL. FELIKSA RADWAŃSKIEGO 15/1, 30-065 KRAKÓW",listBill.get(0).getP3B());
+        assertEquals("UL. FELIKSA RADWAŃSKIEGO 15/1, 30-065 KRAKÓW",listBill.get(0).getP3B());
+        assertEquals("634-27-26-447",listBill.get(0).getP5B());
+        assertEquals("2020-10-09",listBill.get(0).getP6());
+        assertEquals("3000.00", String.valueOf(listBill.get(0).getP131()));
+        assertEquals(new BigDecimal(23) ,listBill.get(0).getP141());
+        assertEquals("690.00",String.valueOf(listBill.get(0).getP15()));
+    }
 
+    @Test
+    public void rightGettersPart2(){
+        readerCSV.parserOfCSV();
+        listBill.addAll(readerCSV.getBills());
+        assertEquals(false ,listBill.get(0).getP16());
+        assertEquals(false,listBill.get(0).getP17());
+        assertEquals(false,listBill.get(0).getP18());
+        assertEquals(false,listBill.get(0).getP18A());
+        assertEquals(false,listBill.get(0).getP19());
+        assertEquals(false,listBill.get(0).getP20());
+        assertEquals(false,listBill.get(0).getP21());
+        assertEquals(false, listBill.get(0).getP22());
+        assertEquals(false,listBill.get(0).getP23());
+        assertEquals(false,listBill.get(0).getP106E2());
+        assertEquals(false,listBill.get(0).getP106E3());
+        assertEquals("\"CORE LOGIC\" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",listBill.get(0).getP3C());
+        assertEquals("ul. Feliksa Radwańskiego 15/1, 30-065 Kraków",listBill.get(0).getP3D());
+        assertEquals("PL",listBill.get(0).getP4A());
+        assertEquals("6762484560",listBill.get(0).getP4B());
+        assertEquals("VAT",listBill.get(0).getRodzajFaktury());
     }
 }

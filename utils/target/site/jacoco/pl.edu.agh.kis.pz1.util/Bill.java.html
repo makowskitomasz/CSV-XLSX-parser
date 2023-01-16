@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bill.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Modul na klasy uzytkowe</a> &gt; <a href="index.source.html" class="el_package">pl.edu.agh.kis.pz1.util</a> &gt; <span class="el_source">Bill.java</span></div><h1>Bill.java</h1><pre class="source lang-java linenums">package pl.edu.agh.kis.pz1.util;
+
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
+
+/**
+ * @author tomaszmakowski
+ * class that defines the bill
+ */
+
+@XmlType(propOrder = {&quot;kodWaluty&quot;, &quot;p1&quot;, &quot;p2A&quot;, &quot;p3A&quot;, &quot;p3B&quot;, &quot;p3C&quot;, &quot;p3D&quot;, &quot;p4A&quot;, &quot;p4B&quot;, &quot;p5B&quot;, &quot;p6&quot;, &quot;p131&quot;, &quot;p141&quot;,
+&quot;p15&quot;, &quot;p16&quot;, &quot;p17&quot;, &quot;p18&quot;, &quot;p18A&quot;, &quot;p19&quot;, &quot;p20&quot;, &quot;p21&quot;, &quot;p22&quot;, &quot;p23&quot;, &quot;p106E2&quot;, &quot;p106E3&quot;, &quot;rodzajFaktury&quot;})
+@XmlRootElement(name=&quot;Faktury&quot;)
+public class Bill {
+<span class="fc" id="L17">    String kodWaluty = &quot;PLN&quot;;</span>
+    String p1;
+    String p2A;
+    String p3A;
+    String p3B;
+    String p5B;
+    String p6;
+    BigDecimal p131;
+    BigDecimal p141;
+    BigDecimal p15;
+<span class="fc" id="L27">    Boolean p16 = false;</span>
+<span class="fc" id="L28">    Boolean p17 = false;</span>
+<span class="fc" id="L29">    Boolean p18 = false;</span>
+<span class="fc" id="L30">    Boolean p18A = false;</span>
+<span class="fc" id="L31">    Boolean p19 = false;</span>
+<span class="fc" id="L32">    Boolean p20 = false;</span>
+<span class="fc" id="L33">    Boolean p21 = false;</span>
+<span class="fc" id="L34">    Boolean p22 = false;</span>
+<span class="fc" id="L35">    Boolean p23 = false;</span>
+<span class="fc" id="L36">    Boolean p106E2 = false;</span>
+<span class="fc" id="L37">    Boolean p106E3 = false;</span>
+
+<span class="fc" id="L39">    String p3C = &quot;\&quot;CORE LOGIC\&quot; SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ&quot;;</span>
+<span class="fc" id="L40">    String p3D = &quot;ul. Feliksa Radwańskiego 15/1, 30-065 Kraków&quot;;</span>
+<span class="fc" id="L41">    String p4A = &quot;PL&quot;;</span>
+<span class="fc" id="L42">    String p4B = &quot;6762484560&quot;;</span>
+<span class="fc" id="L43">    String rodzajFaktury = &quot;VAT&quot;;</span>
+
+    public Bill(){
+<span class="fc" id="L46">        super();</span>
+<span class="fc" id="L47">    }</span>
+
+    /**
+     * Constructor that uses the data from the CSV file
+     * @param p3A - name of the company
+     * @param p3B - address of the company
+     * @param p5B - NIP of the company
+     * @param p1  - number of the bill
+     * @param p6 - date of the bill
+     * @param p2A - date of the bill
+     * @param p131 - netto value of the bill
+     * @param p141 - brutto value of the bill
+     * @param p15 - VAT value of the bill
+     */
+
+<span class="fc" id="L62">    Bill(String p3A, String p3B, String p5B, String p1, String p6, String p2A, BigDecimal p131, BigDecimal p141, BigDecimal p15){</span>
+<span class="fc" id="L63">        this.p1 = p1;</span>
+<span class="fc" id="L64">        this.p3A = p3A;</span>
+<span class="fc" id="L65">        this.p2A = p2A;</span>
+<span class="fc" id="L66">        this.p3B = p3B;</span>
+<span class="fc" id="L67">        this.p5B = p5B;</span>
+<span class="fc" id="L68">        this.p6 = p6;</span>
+<span class="fc" id="L69">        this.p131 = p131;</span>
+<span class="fc" id="L70">        this.p141 = p141;</span>
+<span class="fc" id="L71">        this.p15 = p15;</span>
+<span class="fc" id="L72">    }</span>
+
+    @XmlElement(name=&quot;KodWaluty&quot;)
+    public String getKodWaluty() {
+<span class="fc" id="L76">        return kodWaluty;</span>
+    }
+
+    @XmlElement(name=&quot;P_1&quot;)
+    public String getP1() {
+<span class="fc" id="L81">        return p1;</span>
+    }
+
+    @XmlElement(name=&quot;P_2A&quot;)
+    public String getP2A() {
+<span class="fc" id="L86">        return p2A;</span>
+    }
+    @XmlElement(name=&quot;P_3A&quot;)
+    public String getP3A() {
+<span class="fc" id="L90">        return p3A;</span>
+    }
+    @XmlElement(name=&quot;P_3B&quot;)
+    public String getP3B() {
+<span class="fc" id="L94">        return p3B;</span>
+    }
+    @XmlElement (name=&quot;P_5B&quot;)
+    public String getP5B() {
+<span class="fc" id="L98">        return p5B;</span>
+    }
+    @XmlElement(name=&quot;P_6&quot;)
+    public String getP6() {
+<span class="fc" id="L102">        return p6;</span>
+    }
+    @XmlElement(name=&quot;P_13_1&quot;)
+    public BigDecimal getP131() {
+<span class="fc" id="L106">        return p131;</span>
+    }
+    @XmlElement(name=&quot;P_14_1&quot;)
+    public BigDecimal getP141() {
+<span class="fc" id="L110">        return p141;</span>
+    }
+    @XmlElement(name=&quot;P_15&quot;)
+    public BigDecimal getP15() {
+<span class="fc" id="L114">        return p15;</span>
+    }
+    @XmlElement(name=&quot;P_16&quot;)
+    public Boolean getP16() {
+<span class="fc" id="L118">        return p16;</span>
+    }
+    @XmlElement(name=&quot;P_17&quot;)
+    public Boolean getP17() {
+<span class="fc" id="L122">        return p17;</span>
+    }
+    @XmlElement(name=&quot;P_18&quot;)
+    public Boolean getP18() {
+<span class="fc" id="L126">        return p18;</span>
+    }
+    @XmlElement(name=&quot;P_18A&quot;)
+    public Boolean getP18A() {
+<span class="fc" id="L130">        return p18A;</span>
+    }
+    @XmlElement(name=&quot;P_19&quot;)
+    public Boolean getP19() {
+<span class="fc" id="L134">        return p19;</span>
+    }
+    @XmlElement(name=&quot;P_20&quot;)
+    public Boolean getP20() {
+<span class="fc" id="L138">        return p20;</span>
+    }
+    @XmlElement(name=&quot;P_21&quot;)
+    public Boolean getP21() {
+<span class="fc" id="L142">        return p21;</span>
+    }
+    @XmlElement(name=&quot;P_22&quot;)
+    public Boolean getP22() {
+<span class="fc" id="L146">        return p22;</span>
+    }
+    @XmlElement(name=&quot;P_23&quot;)
+    public Boolean getP23() {
+<span class="fc" id="L150">        return p23;</span>
+    }
+    @XmlElement(name=&quot;P_106E_2&quot;)
+    public Boolean getP106E2() {
+<span class="fc" id="L154">        return p106E2;</span>
+    }
+    @XmlElement(name=&quot;P_106E_3&quot;)
+    public Boolean getP106E3() {
+<span class="fc" id="L158">        return p106E3;</span>
+    }
+    @XmlElement(name=&quot;P_3C&quot;)
+    public String getP3C() {
+<span class="fc" id="L162">        return p3C;</span>
+    }
+    @XmlElement(name=&quot;P_3D&quot;)
+    public String getP3D() {
+<span class="fc" id="L166">        return p3D;</span>
+    }
+    @XmlElement(name=&quot;P_4A&quot;)
+    public String getP4A() {
+<span class="fc" id="L170">        return p4A;</span>
+    }
+    @XmlElement(name=&quot;P_4B&quot;)
+    public String getP4B() {
+<span class="fc" id="L174">        return p4B;</span>
+    }
+    @XmlElement(name=&quot;RodzajFaktury&quot;)
+    public String getRodzajFaktury() {
+<span class="fc" id="L178">        return rodzajFaktury;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

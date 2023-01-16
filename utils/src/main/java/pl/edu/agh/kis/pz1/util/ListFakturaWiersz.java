@@ -1,37 +1,49 @@
 package pl.edu.agh.kis.pz1.util;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that represents a list of FakturaWiersz
+ * * @author tomaszmakowski
+ *
+ */
 @XmlRootElement(name="FakturaWiersze")
 public class ListFakturaWiersz {
-    private List<FakturaWiersz> listFakturaWiersz = new ArrayList<FakturaWiersz>();
+    private List<FakturaWiersz> fakturaWierszList = new ArrayList<>();
 
-    private ListFakturaWiersz(){
+    public ListFakturaWiersz(){
         super();
     }
+
+    /**
+     * Constructor of ListFakturaWiersz
+     * @param i defines the file type
+     *          0 - XLSX
+     *          1 - CSV
+     */
     public ListFakturaWiersz(int i){
         if(i == 0){
             ReaderXLSX readerXLSX = new ReaderXLSX();
             readerXLSX.parserOfXLSX();
-            listFakturaWiersz.addAll(readerXLSX.fakturaWierszList);
+            fakturaWierszList.addAll(readerXLSX.getFakturaWierszList());
         }
         else if(i == 1){
             ReaderCSV readerCSV = new ReaderCSV();
             readerCSV.parserOfCSV();
-            listFakturaWiersz.addAll(readerCSV.fakturaWierszList);
+            fakturaWierszList.addAll(readerCSV.getFakturaWierszList());
         }
 
     }
 
     @XmlElement(name = "FakturaWiersz")
-    public List<FakturaWiersz> getListFakturaWiersz() {
-        return listFakturaWiersz;
+    public List<FakturaWiersz> getfakturaWierszList() {
+        return fakturaWierszList;
     }
 
-    public void setListFakturaWiersz(List<FakturaWiersz> listFakturaWiersz) {
-        this.listFakturaWiersz = listFakturaWiersz;
+    public void setfakturaWierszList(List<FakturaWiersz> fakturaWierszList) {
+        this.fakturaWierszList = fakturaWierszList;
     }
 }

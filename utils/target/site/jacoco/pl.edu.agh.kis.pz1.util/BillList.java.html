@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BillList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Modul na klasy uzytkowe</a> &gt; <a href="index.source.html" class="el_package">pl.edu.agh.kis.pz1.util</a> &gt; <span class="el_source">BillList.java</span></div><h1>BillList.java</h1><pre class="source lang-java linenums">package pl.edu.agh.kis.pz1.util;
+
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * Class that defines the list of all bills
+ * @author tomaszmakowski
+ */
+@XmlRootElement(name=&quot;Faktury&quot;)
+public class BillList {
+<span class="fc" id="L15">    private List&lt;Bill&gt; listBill = new ArrayList&lt;&gt;();</span>
+
+    public BillList(){
+<span class="fc" id="L18">        super();</span>
+<span class="fc" id="L19">    }</span>
+
+    /**
+     * Constructor of BillList Class
+     * @param i the number of the file type
+     *         0 - XLSX
+     *          1 - CSV
+     */
+<span class="fc" id="L27">    public BillList(int i) {</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(i == 0){</span>
+<span class="fc" id="L29">            ReaderXLSX readerXLSX = new ReaderXLSX();</span>
+<span class="fc" id="L30">            readerXLSX.parserOfXLSX();</span>
+<span class="fc" id="L31">            listBill.addAll(readerXLSX.getBills());</span>
+<span class="fc" id="L32">        }</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        else if(i == 1){</span>
+<span class="fc" id="L34">            ReaderCSV readerCSV = new ReaderCSV();</span>
+<span class="fc" id="L35">            readerCSV.parserOfCSV();</span>
+<span class="fc" id="L36">            listBill.addAll(readerCSV.getBills());</span>
+        }
+
+<span class="fc" id="L39">    }</span>
+
+    @XmlElement(name = &quot;Faktura&quot;)
+    public List&lt;Bill&gt; getBillList() {
+<span class="fc" id="L43">        return listBill;</span>
+    }
+
+    public void setBillList(List&lt;Bill&gt; listBill) {
+<span class="fc" id="L47">        this.listBill = listBill;</span>
+<span class="fc" id="L48">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

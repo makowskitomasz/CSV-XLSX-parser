@@ -8,28 +8,38 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * A class that tests the FakturaWiersz class
+ */
 public class FakturaWierszTest {
 
     private final List<FakturaWiersz> fakturaWierszList = new ArrayList<FakturaWiersz>();
 
     ReaderXLSX readerXLSX = new ReaderXLSX();
 
+    /**
+     * Test for the construction of FakturaWiersz
+     */
     @Test
     public void shouldCreateFakturaWierszObject(){
         FakturaWiersz fakturaWiersz = new FakturaWiersz();
         assertNotNull("FakturaWiersz object called.", fakturaWiersz);
     }
+
+    /**
+     * Test for the getter methods of FakturaWierszTest class
+     */
     @Test
     public void rightGetters(){
         readerXLSX.parserOfXLSX();
-        fakturaWierszList.addAll(readerXLSX.fakturaWierszList);
-        assertEquals("3-09/10/2020", readerXLSX.fakturaWierszList.get(0).getP_2B());
-        assertEquals("23.0", String.valueOf(readerXLSX.fakturaWierszList.get(0).getP_12()));
-        assertEquals("Sprzedaż usług krajowych", readerXLSX.fakturaWierszList.get(0).getP_7());
-        assertEquals("szt", readerXLSX.fakturaWierszList.get(0).getP_8A());
-        assertEquals("1.0", String.valueOf(readerXLSX.fakturaWierszList.get(0).getP_8B()));
-        assertEquals("3000.0", String.valueOf(readerXLSX.fakturaWierszList.get(0).getP_9A()));
-        assertEquals("3690.0", String.valueOf(readerXLSX.fakturaWierszList.get(0).getP_9B()));
-        assertEquals("3000.0", String.valueOf(readerXLSX.fakturaWierszList.get(0).getP_11()));
+        fakturaWierszList.addAll(readerXLSX.getFakturaWierszList());
+        assertEquals("3-09/10/2020", readerXLSX.getFakturaWierszList().get(0).getP2B());
+        assertEquals("23.0", String.valueOf(readerXLSX.getFakturaWierszList().get(0).getP12()));
+        assertEquals("Sprzedaż usług krajowych", readerXLSX.getFakturaWierszList().get(0).getP7());
+        assertEquals("szt", readerXLSX.getFakturaWierszList().get(0).getP8A());
+        assertEquals("1.0", String.valueOf(readerXLSX.getFakturaWierszList().get(0).getP8B()));
+        assertEquals("3000.0", String.valueOf(readerXLSX.getFakturaWierszList().get(0).getP9A()));
+        assertEquals("3690.0", String.valueOf(readerXLSX.getFakturaWierszList().get(0).getP9B()));
+        assertEquals("3000.0", String.valueOf(readerXLSX.getFakturaWierszList().get(0).getP11()));
     }
 }
