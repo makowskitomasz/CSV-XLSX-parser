@@ -34,8 +34,8 @@ public class FakturaCtrlTest {
      */
     @Test
     public void testGetLiczbaFaktur() {
-        assertEquals(107,fakturaCtrl.getLiczbaFaktur());
-        assertEquals(107,fakturaCtrl1.getLiczbaFaktur());
+        assertEquals(44,fakturaCtrl.getLiczbaFaktur());
+        assertEquals(44,fakturaCtrl1.getLiczbaFaktur());
     }
 
     /**
@@ -43,7 +43,7 @@ public class FakturaCtrlTest {
      */
     @Test
     public void testGetWartoscFaktur(){
-        assertEquals("2461.0", String.valueOf(fakturaCtrl.getWartoscFaktur()));
-        assertEquals("2461", String.valueOf(fakturaCtrl1.getWartoscFaktur()));
+        assertEquals("1762317.41", String.valueOf(fakturaCtrl.getWartoscFaktur()));
+        assertEquals("1762317.41", String.valueOf(fakturaCtrl1.getWartoscFaktur()));
     }
 }

@@ -21,7 +21,6 @@ public class Main {
         String fileName = args[1];
         if(args[0].endsWith(".xlsx")) fileType = 0;
         else fileType = 1;
-        System.out.println(fileType);
         WriterXML writerXML = new WriterXML();
         writerXML.writeXML(fileType, fileName, args[0]);
     }

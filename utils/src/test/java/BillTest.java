@@ -42,9 +42,9 @@ public class BillTest {
         assertEquals("UL. FELIKSA RADWAŃSKIEGO 15/1, 30-065 KRAKÓW",listBill.get(0).getP3B());
         assertEquals("634-27-26-447",listBill.get(0).getP5B());
         assertEquals("2020-10-09",listBill.get(0).getP6());
-        assertEquals("3000.00", String.valueOf(listBill.get(0).getP131()));
-        assertEquals(new BigDecimal(23) ,listBill.get(0).getP141());
-        assertEquals("690.00",String.valueOf(listBill.get(0).getP15()));
+        assertEquals("1", String.valueOf(listBill.get(0).getP131()));
+        assertEquals("690.00" ,String.valueOf(listBill.get(0).getP141()));
+        assertEquals("3690.00",String.valueOf(listBill.get(0).getP15()));
     }
 
     @Test

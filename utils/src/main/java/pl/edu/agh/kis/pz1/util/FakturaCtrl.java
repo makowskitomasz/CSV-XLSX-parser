@@ -31,7 +31,7 @@ public class FakturaCtrl {
             readerXLSX.parserOfXLSX(source);
             for(Bill bill : readerXLSX.getBills()){
                 liczbaFaktur += 1;
-                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));
+                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP15())));
             }
         }
         else if(i == 1){
@@ -39,7 +39,7 @@ public class FakturaCtrl {
             readerCSV.parserOfCSV(source);
             for(Bill bill : readerCSV.getBills()){
                 liczbaFaktur += 1;
-                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));
+                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP15())));
             }
         }
     }

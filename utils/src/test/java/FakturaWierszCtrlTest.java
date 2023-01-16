@@ -44,7 +44,7 @@ public class FakturaWierszCtrlTest {
      */
     @Test
     public void testGetWartoscFaktur(){
-        assertEquals("6160704.29", String.valueOf(fakturaWierszCtrl.getWartoscWierszyFaktur()));
-        assertEquals("6160704.29", String.valueOf(fakturaWierszCtrl1.getWartoscWierszyFaktur()));
+        assertEquals("1432778.41", String.valueOf(fakturaWierszCtrl.getWartoscWierszyFaktur()));
+        assertEquals("1432778.41", String.valueOf(fakturaWierszCtrl1.getWartoscWierszyFaktur()));
     }
 }

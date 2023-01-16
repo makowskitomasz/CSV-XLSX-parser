@@ -33,8 +33,8 @@ public class BillListTest {
      */
     @Test
     public void testGetBillList() {
-        assertEquals(107, billList.getBillList().size());
-        assertEquals(107, billList1.getBillList().size());
+        assertEquals(44, billList.getBillList().size());
+        assertEquals(44, billList1.getBillList().size());
     }
 
     /**

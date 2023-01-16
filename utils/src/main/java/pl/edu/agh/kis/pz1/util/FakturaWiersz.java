@@ -16,7 +16,7 @@ public class FakturaWiersz {
 
     private String p2B;
     private String p12;
-    private String p9B;
+    private BigDecimal p9B;
     private static final String P7 = "Sprzedaż usług krajowych";
     private static final String P8A = "szt";
     private BigDecimal p8B;
@@ -37,7 +37,7 @@ public class FakturaWiersz {
      * @param p9B - unit of the product
      * @param p11 - tax amount
      */
-    FakturaWiersz(String p2B, String p12, BigDecimal p8B, BigDecimal p9A, String p9B, BigDecimal p11){
+    FakturaWiersz(String p2B, String p12, BigDecimal p8B, BigDecimal p9A, BigDecimal p9B, BigDecimal p11){
         this.p2B = p2B;
         this.p12 = p12;
         this.p8B = p8B;
@@ -70,7 +70,7 @@ public class FakturaWiersz {
         return p9A;
     }
     @XmlElement(name = "P_9B")
-    public String getP9B() {
+    public BigDecimal getP9B() {
         return p9B;
     }
     @XmlElement(name = "P_11")
