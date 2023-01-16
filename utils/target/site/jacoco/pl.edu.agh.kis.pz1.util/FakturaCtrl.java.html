@@ -12,11 +12,11 @@ import java.math.BigDecimal;
 @XmlRootElement(name=&quot;FakturaCtrl&quot;)
 public class FakturaCtrl {
     private int liczbaFaktur;
-<span class="fc" id="L15">    private BigDecimal wartoscFaktur = new BigDecimal(0);</span>
+<span class="pc" id="L15">    private BigDecimal wartoscFaktur = new BigDecimal(0);</span>
 
     public FakturaCtrl(){
-<span class="fc" id="L18">        super();</span>
-<span class="fc" id="L19">    }</span>
+<span class="nc" id="L18">        super();</span>
+<span class="nc" id="L19">    }</span>
 
     /**
      * Constructor of FakturaCtrl Class
@@ -26,21 +26,21 @@ public class FakturaCtrl {
      * counts number of bills and their value
      */
 <span class="fc" id="L28">    public FakturaCtrl(int i) {</span>
-<span class="fc bfc" id="L29" title="All 2 branches covered.">        if(i == 0){</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if(i == 0){</span>
 <span class="fc" id="L30">            ReaderXLSX readerXLSX = new ReaderXLSX();</span>
 <span class="fc" id="L31">            readerXLSX.parserOfXLSX();</span>
-<span class="fc bfc" id="L32" title="All 2 branches covered.">            for(Bill bill : readerXLSX.getBills()){</span>
-<span class="fc" id="L33">                liczbaFaktur += 1;</span>
-<span class="fc" id="L34">                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));</span>
-<span class="fc" id="L35">            }</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">            for(Bill bill : readerXLSX.getBills()){</span>
+<span class="nc" id="L33">                liczbaFaktur += 1;</span>
+<span class="nc" id="L34">                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));</span>
+<span class="nc" id="L35">            }</span>
 <span class="fc" id="L36">        }</span>
-<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        else if(i == 1){</span>
-<span class="fc" id="L38">            ReaderCSV readerCSV = new ReaderCSV();</span>
-<span class="fc" id="L39">            readerCSV.parserOfCSV();</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">            for(Bill bill : readerCSV.getBills()){</span>
-<span class="fc" id="L41">                liczbaFaktur += 1;</span>
-<span class="fc" id="L42">                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));</span>
-<span class="fc" id="L43">            }</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        else if(i == 1){</span>
+<span class="nc" id="L38">            ReaderCSV readerCSV = new ReaderCSV();</span>
+<span class="nc" id="L39">            readerCSV.parserOfCSV();</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">            for(Bill bill : readerCSV.getBills()){</span>
+<span class="nc" id="L41">                liczbaFaktur += 1;</span>
+<span class="nc" id="L42">                wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));</span>
+<span class="nc" id="L43">            }</span>
         }
 <span class="fc" id="L45">    }</span>
 

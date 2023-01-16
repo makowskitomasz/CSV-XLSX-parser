@@ -35,7 +35,7 @@ public class WriterXMLTest {
         JAXBContext context = JAXBContext.newInstance(JPK.class);
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        marshaller.marshal(new JPK(0), myFile);
+        marshaller.marshal(new JPK(1, "faktury-sprzedazowe-test-2023.csv"), myFile);
         assertTrue(myFile.exists());
         delete(myFile);
     }

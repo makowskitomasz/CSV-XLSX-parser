@@ -26,10 +26,10 @@ public class FakturaWierszCtrl {
      * liczbaWierszyFaktur number of FakturaWiersz in FakturaWierszCtrl
      * wartoscWierszyFaktur value of FakturaWiersz in FakturaWierszCtrl
      */
-    public FakturaWierszCtrl(int i) {
+    public FakturaWierszCtrl(int i, String source) {
         if(i == 0){
             ReaderXLSX readerXLSX = new ReaderXLSX();
-            readerXLSX.parserOfXLSX();
+            readerXLSX.parserOfXLSX(source);
             for (FakturaWiersz fakturaWiersz : readerXLSX.getFakturaWierszList()) {
                 liczbaWierszyFaktur += 1;
                 wartoscWierszyFaktur = wartoscWierszyFaktur.add(new BigDecimal(String.valueOf(fakturaWiersz.getP11())));
@@ -37,7 +37,7 @@ public class FakturaWierszCtrl {
         }
         else if(i == 1){
             ReaderCSV readerCSV = new ReaderCSV();
-            readerCSV.parserOfCSV();
+            readerCSV.parserOfCSV(source);
             for (FakturaWiersz fakturaWiersz : readerCSV.getFakturaWierszList()){
                 liczbaWierszyFaktur += 1;
                 wartoscWierszyFaktur = wartoscWierszyFaktur.add(new BigDecimal(String.valueOf(fakturaWiersz.getP11())));

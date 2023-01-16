@@ -24,15 +24,15 @@ public class BillList {
      *         0 - XLSX
      *          1 - CSV
      */
-    public BillList(int i) {
+    public BillList(int i, String source){
         if(i == 0){
             ReaderXLSX readerXLSX = new ReaderXLSX();
-            readerXLSX.parserOfXLSX();
+            readerXLSX.parserOfXLSX(source);
             listBill.addAll(readerXLSX.getBills());
         }
         else if(i == 1){
             ReaderCSV readerCSV = new ReaderCSV();
-            readerCSV.parserOfCSV();
+            readerCSV.parserOfCSV(source);
             listBill.addAll(readerCSV.getBills());
         }
 

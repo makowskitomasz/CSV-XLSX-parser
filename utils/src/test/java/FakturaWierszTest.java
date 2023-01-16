@@ -31,7 +31,7 @@ public class FakturaWierszTest {
      */
     @Test
     public void rightGetters(){
-        readerXLSX.parserOfXLSX();
+        readerXLSX.parserOfXLSX("faktury-sprzedazowe-test-2023.xlsx");
         fakturaWierszList.addAll(readerXLSX.getFakturaWierszList());
         assertEquals("3-09/10/2020", readerXLSX.getFakturaWierszList().get(0).getP2B());
         assertEquals("23.0", String.valueOf(readerXLSX.getFakturaWierszList().get(0).getP12()));

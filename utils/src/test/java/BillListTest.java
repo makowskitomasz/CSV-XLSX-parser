@@ -8,8 +8,8 @@ import static org.junit.Assert.*;
  * Test for the BillList class
  */
 public class BillListTest {
-    BillList billList = new BillList(0);
-    BillList billList1 = new BillList(1);
+    BillList billList = new BillList(0, "faktury-sprzedazowe-test-2023.xlsx");
+    BillList billList1 = new BillList(1, "faktury-sprzedazowe-test-2023.csv");
 
     /**
      * Test for the BillList no arg constructor

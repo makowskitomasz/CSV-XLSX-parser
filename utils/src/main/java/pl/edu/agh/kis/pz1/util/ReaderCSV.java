@@ -43,7 +43,7 @@ public class ReaderCSV {
     /**
      * A method which reads csv file and creates list of bills and list of fakturaWiersz
      */
-    public void parserOfCSV(){
+    public void parserOfCSV(String source){
         String p3A;
         BigDecimal p131;
         BigDecimal p141;
@@ -59,7 +59,7 @@ public class ReaderCSV {
         String p2B;
         String p12;
         String p9B;
-        try (Reader in = new FileReader("/home/tomaszmakowski/ProgramowanieZaawansowane/Projekt3/faktury-sprzedazowe-test-2023.csv")) {
+        try (Reader in = new FileReader(source)) {
             Iterable<CSVRecord> records = CSVFormat.TDF.parse(in);
             int counter = 0;
             for (CSVRecord csvRecord : records) {

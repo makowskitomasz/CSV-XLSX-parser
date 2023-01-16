@@ -22,7 +22,7 @@ public class ReaderXLSXTest {
      */
     @Test
     public void parserWorksCorrectly(){
-        readerXLSX.parserOfXLSX();
+        readerXLSX.parserOfXLSX("faktury-sprzedazowe-test-2023.xlsx");
         assertNotEquals(null, readerXLSX.getBills());
         assertNotEquals(null, readerXLSX.getFakturaWierszList());
         assertEquals(readerXLSX.getBills().size(), readerXLSX.getFakturaWierszList().size());

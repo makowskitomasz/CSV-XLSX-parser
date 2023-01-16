@@ -14,9 +14,10 @@ public class Main {
      * main method of program that chooses the type of reader and writes a xml file
      */
     public static void main(String[] args) {
-        String fileName = "billFromXLSX.xml";
+        String fileName = "billFromCSV.xml";
         int fileType = 1;
         WriterXML writerXML = new WriterXML();
-        writerXML.writeXML(fileType, fileName);
+        writerXML.writeXML(fileType, fileName, "faktury-sprzedazowe-test-2023.csv");
+
     }
 }

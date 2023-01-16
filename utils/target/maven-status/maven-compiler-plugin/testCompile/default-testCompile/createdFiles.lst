@@ -1,12 +1,7 @@
 BillTest.class
 ReaderCSVTest.class
-FakturaWierszCtrlTest.class
 NaglowekTest.class
 JPKTest.class
 ReaderXLSXTest.class
 WriterXMLTest.class
-FakturaWierszTest.class
-FakturaCtrlTest.class
-ListFakturaWierszTest.class
 Podmiot1Test.class
-BillListTest.class

@@ -25,10 +25,10 @@ public class FakturaCtrl {
      *          1 - CSV
      * counts number of bills and their value
      */
-    public FakturaCtrl(int i) {
+    public FakturaCtrl(int i, String source){
         if(i == 0){
             ReaderXLSX readerXLSX = new ReaderXLSX();
-            readerXLSX.parserOfXLSX();
+            readerXLSX.parserOfXLSX(source);
             for(Bill bill : readerXLSX.getBills()){
                 liczbaFaktur += 1;
                 wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));
@@ -36,7 +36,7 @@ public class FakturaCtrl {
         }
         else if(i == 1){
             ReaderCSV readerCSV = new ReaderCSV();
-            readerCSV.parserOfCSV();
+            readerCSV.parserOfCSV(source);
             for(Bill bill : readerCSV.getBills()){
                 liczbaFaktur += 1;
                 wartoscFaktur = wartoscFaktur.add(new BigDecimal(String.valueOf(bill.getP141())));

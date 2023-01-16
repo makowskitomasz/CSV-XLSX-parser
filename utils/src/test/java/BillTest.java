@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class BillTest {
     ReaderCSV readerCSV = new ReaderCSV();
-    private List<Bill> listBill = new ArrayList<Bill>();
+    private List<Bill> listBill = new ArrayList<>();
 
 
     /**
@@ -32,7 +32,7 @@ public class BillTest {
      */
     @Test
     public void rightGetters(){
-        readerCSV.parserOfCSV();
+        readerCSV.parserOfCSV("faktury-sprzedazowe-test-2023.csv");
         listBill.addAll(readerCSV.getBills());
         assertEquals("PLN", listBill.get(0).getKodWaluty());
         assertEquals("2020-10-09",listBill.get(0).getP1());
@@ -49,7 +49,7 @@ public class BillTest {
 
     @Test
     public void rightGettersPart2(){
-        readerCSV.parserOfCSV();
+        readerCSV.parserOfCSV("faktury-sprzedazowe-test-2023.csv");
         listBill.addAll(readerCSV.getBills());
         assertEquals(false ,listBill.get(0).getP16());
         assertEquals(false,listBill.get(0).getP17());

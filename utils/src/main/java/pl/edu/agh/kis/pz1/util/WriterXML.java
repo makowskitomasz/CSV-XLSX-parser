@@ -19,13 +19,13 @@ public class WriterXML {
      * @param fileName name of the file
      * Using JAXBContext and Marshaller
      */
-    public void writeXML(int i, String fileName){
+    public void writeXML(int i, String fileName, String source) {
         try{
             File myFile = new File(fileName);
             JAXBContext context = JAXBContext.newInstance(JPK.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(new JPK(i), myFile);
+            marshaller.marshal(new JPK(i, source), myFile);
         }catch (Exception e){
             e.printStackTrace();
         }

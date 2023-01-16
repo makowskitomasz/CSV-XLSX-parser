@@ -33,7 +33,7 @@ public class ReaderCSVTest {
      */
     @Test
     public void parserWorksCorrectly(){
-        readerCSV.parserOfCSV();
+        readerCSV.parserOfCSV("faktury-sprzedazowe-test-2023.csv");
         assertNotEquals(null, readerCSV.getBills());
         assertNotEquals(null, readerCSV.getFakturaWierszList());
         assertEquals(readerCSV.getBills().size(), readerCSV.getFakturaWierszList().size());

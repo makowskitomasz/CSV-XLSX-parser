@@ -29,7 +29,7 @@ public class ReaderXLSX {
     /**
      * A method which reads xlsx file and creates list of bills and list of fakturaWiersz
      */
-    public void parserOfXLSX(){
+    public void parserOfXLSX(String source){
         String p3A;
         String p3B;
         String p5B;
@@ -46,7 +46,7 @@ public class ReaderXLSX {
         BigDecimal p11;
         String p9B;
         int counter = 0;
-        try (FileInputStream file = new FileInputStream("/home/tomaszmakowski/ProgramowanieZaawansowane/Projekt3/faktury-sprzedazowe-test-2023.xlsx")) {
+        try (FileInputStream file = new FileInputStream(source)) {
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             XSSFSheet sheet = workbook.getSheetAt(0);
             for (Row row : sheet) {

@@ -8,8 +8,8 @@ import static org.junit.Assert.*;
  * A class that tests the ListFakturaWiersz class
  */
 public class ListFakturaWierszTest {
-    ListFakturaWiersz listFakturaWiersz = new ListFakturaWiersz(0);
-    ListFakturaWiersz listFakturaWiersz1 = new ListFakturaWiersz(1);
+    ListFakturaWiersz listFakturaWiersz = new ListFakturaWiersz(0, "faktury-sprzedazowe-test-2023.xlsx");
+    ListFakturaWiersz listFakturaWiersz1 = new ListFakturaWiersz(1, "faktury-sprzedazowe-test-2023.csv");
 
     /**
      * Test for a non-arg constructor

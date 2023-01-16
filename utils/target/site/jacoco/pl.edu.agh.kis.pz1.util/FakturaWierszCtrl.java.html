@@ -11,12 +11,12 @@ import java.math.BigDecimal;
 @XmlRootElement(name=&quot;FakturaWierszCtrl&quot;)
 public class FakturaWierszCtrl {
     private int liczbaWierszyFaktur;
-<span class="fc" id="L14">    private BigDecimal wartoscWierszyFaktur = new BigDecimal(0);</span>
+<span class="pc" id="L14">    private BigDecimal wartoscWierszyFaktur = new BigDecimal(0);</span>
 
 
     public FakturaWierszCtrl(){
-<span class="fc" id="L18">        super();</span>
-<span class="fc" id="L19">    }</span>
+<span class="nc" id="L18">        super();</span>
+<span class="nc" id="L19">    }</span>
 
     /**
      * Constructor of FakturaWierszCtrl Class
@@ -27,21 +27,21 @@ public class FakturaWierszCtrl {
      * wartoscWierszyFaktur value of FakturaWiersz in FakturaWierszCtrl
      */
 <span class="fc" id="L29">    public FakturaWierszCtrl(int i) {</span>
-<span class="fc bfc" id="L30" title="All 2 branches covered.">        if(i == 0){</span>
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if(i == 0){</span>
 <span class="fc" id="L31">            ReaderXLSX readerXLSX = new ReaderXLSX();</span>
 <span class="fc" id="L32">            readerXLSX.parserOfXLSX();</span>
-<span class="fc bfc" id="L33" title="All 2 branches covered.">            for (FakturaWiersz fakturaWiersz : readerXLSX.getFakturaWierszList()) {</span>
-<span class="fc" id="L34">                liczbaWierszyFaktur += 1;</span>
-<span class="fc" id="L35">                wartoscWierszyFaktur = wartoscWierszyFaktur.add(new BigDecimal(String.valueOf(fakturaWiersz.getP11())));</span>
-<span class="fc" id="L36">            }</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">            for (FakturaWiersz fakturaWiersz : readerXLSX.getFakturaWierszList()) {</span>
+<span class="nc" id="L34">                liczbaWierszyFaktur += 1;</span>
+<span class="nc" id="L35">                wartoscWierszyFaktur = wartoscWierszyFaktur.add(new BigDecimal(String.valueOf(fakturaWiersz.getP11())));</span>
+<span class="nc" id="L36">            }</span>
 <span class="fc" id="L37">        }</span>
-<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        else if(i == 1){</span>
-<span class="fc" id="L39">            ReaderCSV readerCSV = new ReaderCSV();</span>
-<span class="fc" id="L40">            readerCSV.parserOfCSV();</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">            for (FakturaWiersz fakturaWiersz : readerCSV.getFakturaWierszList()){</span>
-<span class="fc" id="L42">                liczbaWierszyFaktur += 1;</span>
-<span class="fc" id="L43">                wartoscWierszyFaktur = wartoscWierszyFaktur.add(new BigDecimal(String.valueOf(fakturaWiersz.getP11())));</span>
-<span class="fc" id="L44">            }</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        else if(i == 1){</span>
+<span class="nc" id="L39">            ReaderCSV readerCSV = new ReaderCSV();</span>
+<span class="nc" id="L40">            readerCSV.parserOfCSV();</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            for (FakturaWiersz fakturaWiersz : readerCSV.getFakturaWierszList()){</span>
+<span class="nc" id="L42">                liczbaWierszyFaktur += 1;</span>
+<span class="nc" id="L43">                wartoscWierszyFaktur = wartoscWierszyFaktur.add(new BigDecimal(String.valueOf(fakturaWiersz.getP11())));</span>
+<span class="nc" id="L44">            }</span>
         }
 
 

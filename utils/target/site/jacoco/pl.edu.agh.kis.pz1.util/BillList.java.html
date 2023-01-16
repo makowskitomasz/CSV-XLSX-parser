@@ -12,11 +12,11 @@ import java.util.List;
  */
 @XmlRootElement(name=&quot;Faktury&quot;)
 public class BillList {
-<span class="fc" id="L15">    private List&lt;Bill&gt; listBill = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L15">    private List&lt;Bill&gt; listBill = new ArrayList&lt;&gt;();</span>
 
     public BillList(){
-<span class="fc" id="L18">        super();</span>
-<span class="fc" id="L19">    }</span>
+<span class="nc" id="L18">        super();</span>
+<span class="nc" id="L19">    }</span>
 
     /**
      * Constructor of BillList Class
@@ -25,15 +25,15 @@ public class BillList {
      *          1 - CSV
      */
 <span class="fc" id="L27">    public BillList(int i) {</span>
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(i == 0){</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if(i == 0){</span>
 <span class="fc" id="L29">            ReaderXLSX readerXLSX = new ReaderXLSX();</span>
 <span class="fc" id="L30">            readerXLSX.parserOfXLSX();</span>
 <span class="fc" id="L31">            listBill.addAll(readerXLSX.getBills());</span>
 <span class="fc" id="L32">        }</span>
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        else if(i == 1){</span>
-<span class="fc" id="L34">            ReaderCSV readerCSV = new ReaderCSV();</span>
-<span class="fc" id="L35">            readerCSV.parserOfCSV();</span>
-<span class="fc" id="L36">            listBill.addAll(readerCSV.getBills());</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        else if(i == 1){</span>
+<span class="nc" id="L34">            ReaderCSV readerCSV = new ReaderCSV();</span>
+<span class="nc" id="L35">            readerCSV.parserOfCSV();</span>
+<span class="nc" id="L36">            listBill.addAll(readerCSV.getBills());</span>
         }
 
 <span class="fc" id="L39">    }</span>
@@ -44,7 +44,7 @@ public class BillList {
     }
 
     public void setBillList(List&lt;Bill&gt; listBill) {
-<span class="fc" id="L47">        this.listBill = listBill;</span>
-<span class="fc" id="L48">    }</span>
+<span class="nc" id="L47">        this.listBill = listBill;</span>
+<span class="nc" id="L48">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

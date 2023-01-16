@@ -10,8 +10,8 @@ import static org.junit.Assert.assertNotNull;
  * A class that tests the FakturaWierszCtrl class
  */
 public class FakturaWierszCtrlTest {
-    FakturaWierszCtrl fakturaWierszCtrl = new FakturaWierszCtrl(0);
-    FakturaWierszCtrl fakturaWierszCtrl1 = new FakturaWierszCtrl(1);
+    FakturaWierszCtrl fakturaWierszCtrl = new FakturaWierszCtrl(0, "faktury-sprzedazowe-test-2023.xlsx");
+    FakturaWierszCtrl fakturaWierszCtrl1 = new FakturaWierszCtrl(1, "faktury-sprzedazowe-test-2023.csv");
 
     /**
      * Test of non arg constructor

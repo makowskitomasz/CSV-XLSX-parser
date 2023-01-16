@@ -32,13 +32,13 @@ public class JPK {
      *          1 - CSV
      * Calls the constructors of other classes: Naglowek, Podmiot1, BillList, FakturaCtrl, ListFakturaWiersz, FakturaWierszCtrl
      */
-    public JPK(int i) {
+    public JPK(int i, String source) {
             super();
             podmiot1 = new Podmiot1();
-            billList = new BillList(i);
-            fakturaCtrl = new FakturaCtrl(i);
-            listFakturaWiersz = new ListFakturaWiersz(i);
-            fakturaWierszCtrl = new FakturaWierszCtrl(i);
+            billList = new BillList(i, source);
+            fakturaCtrl = new FakturaCtrl(i, source);
+            listFakturaWiersz = new ListFakturaWiersz(i, source);
+            fakturaWierszCtrl = new FakturaWierszCtrl(i, source);
             naglowek = new Naglowek();
         }
     @XmlElement

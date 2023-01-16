@@ -24,15 +24,15 @@ public class ListFakturaWiersz {
      *          0 - XLSX
      *          1 - CSV
      */
-    public ListFakturaWiersz(int i){
+    public ListFakturaWiersz(int i, String source){
         if(i == 0){
             ReaderXLSX readerXLSX = new ReaderXLSX();
-            readerXLSX.parserOfXLSX();
+            readerXLSX.parserOfXLSX(source);
             fakturaWierszList.addAll(readerXLSX.getFakturaWierszList());
         }
         else if(i == 1){
             ReaderCSV readerCSV = new ReaderCSV();
-            readerCSV.parserOfCSV();
+            readerCSV.parserOfCSV(source);
             fakturaWierszList.addAll(readerCSV.getFakturaWierszList());
         }
 

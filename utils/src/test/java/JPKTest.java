@@ -22,7 +22,7 @@ public class JPKTest {
      */
     @Test
     public void constructorsCalled(){
-        JPK jpk = new JPK(0);
+        JPK jpk = new JPK(0, "faktury-sprzedazowe-test-2023.xlsx");
         assertNotNull(jpk);
         assertNotNull(jpk.getNaglowek());
         assertNotNull(jpk.getPodmiot1());
@@ -37,7 +37,7 @@ public class JPKTest {
      */
     @Test
     public void rightGetters(){
-        JPK jpk = new JPK(0);
+        JPK jpk = new JPK(0, "faktury-sprzedazowe-test-2023.xlsx");
         assertEquals(jpk.getNaglowek().getClass(), Naglowek.class);
         assertEquals(jpk.getPodmiot1().getClass(), Podmiot1.class);
         assertEquals(jpk.getBillList().getClass(), BillList.class);
